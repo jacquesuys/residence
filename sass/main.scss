@@ -12,17 +12,54 @@ $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
        url("../bower_components/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); 
 }
 
+@font-face {
+    font-family: 'museo300';
+    src: url('../fonts/Museo300-Regular-webfont.eot');
+    src: url('../fonts/Museo300-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Museo300-Regular-webfont.woff2') format('woff2'),
+         url('../fonts/Museo300-Regular-webfont.woff') format('woff'),
+         url('../fonts/Museo300-Regular-webfont.ttf') format('truetype'),
+         url('../fonts/Museo300-Regular-webfont.svg#museo300') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$cota: #BDBBB5;
+$navy: #1B2531;
+$blue-gray: #555F6F;
+$serif: "Times New Roman", serif;
+
 body, html {
   font-size: 16px;
+}
+
+body {
+  font-family: 'museo300';
 }
 
 @mixin layout {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0;
+
+  @media (min-width: 1200px) {
+    width: 1230px;
+  }
+}
+
+@function rem($divisor) {
+  @return $divisor / 16 * 1rem;
 }
 
 img {
   max-width: 100%;
+}
+
+@for $i from 1 through 3 {
+  h#{$i} {
+    font-family: $serif;
+    text-transform: uppercase;
+  }
 }
 
 .container,
@@ -30,9 +67,118 @@ img {
   @include layout;
 }
 
+.navbar {
+  height: 100px;
+  max-width: 1230px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-color: transparent;
+
+  .navbar-brand {
+    max-width: 300px;
+  }
+
+  #navbar {
+    font-family: $serif;
+    text-transform: uppercase;
+    margin: 22px 15px 0 0;
+
+    .active {
+      a {
+        background-color: transparent;
+        font-weight: bold;
+        color: #000;
+
+        &:hover {
+          color: #000;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
 .carousel {
+  position: relative;
+  max-width: 1230px;
+
   img {
     width: 100%;
+  }
+
+  .carousel-indicators {
+    width: auto;
+    right: 20px;
+    left: auto;
+
+    li {
+      display: block;
+      margin-bottom: 7px;
+
+      .active {
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+}
+
+.overview {
+  .col-md-6 {
+    height: 300px;
+    padding: 15px 45px;
+
+    h2 {
+      font-size: rem(30);
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: rem(16);
+      line-height: 1.5rem;
+    }
+
+    &:nth-child(1) {
+      background-color: $navy;
+      color: $cota;
+    }
+
+    &:nth-child(2) {
+      background-color: $cota;
+      color: $navy;
+    }
+
+    &:nth-child(3) {
+      background-color: $blue-gray;
+      color: $cota;
+    }
+
+    &:nth-child(4) {
+      background-color: #000;
+      color: $cota;
+    }
+  }
+}
+
+.features {
+  .col-md-4 {
+    padding: 0;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.about {
+  padding: 45px 30px;
+
+  img[alt="signature"] {
+    margin-top: 30px;
+  }
+
+  .col-md-5 {
+    padding: 15px;
   }
 }
 
