@@ -154,22 +154,26 @@
           <form action="" novalidate="novalidate">
             <div class="form-group">
               <div class="row">
-                <input type="text" placeholder="Name" class="form-control">
+                <input type="text" name="name" placeholder="Name" class="form-control">
+                <div class="error"></div>
               </div>
             </div>
             <div class="form-group">
               <div class="row">
-                <input type="text" placeholder="Surname" class="form-control">
+                <input type="text" name="surname" placeholder="Surname" class="form-control">
+                <div class="error"></div>
               </div>
             </div>
             <div class="form-group">
               <div class="row">
-                <input type="email" placeholder="Email Address" class="form-control">
+                <input type="email" name="email" placeholder="Email Address" class="form-control">
+                <div class="error"></div>
               </div>
             </div>
             <div class="form-group">
               <div class="row">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Requirements" class="form-control"></textarea>
+                <textarea name="requirements" id="" cols="30" rows="10" placeholder="Requirements" class="form-control"></textarea>
+                <div class="error"></div>
               </div>
             </div>
             <div class="form-group">
@@ -211,5 +215,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
