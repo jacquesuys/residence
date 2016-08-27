@@ -102,6 +102,11 @@ img {
   border: solid 2px #fff;
   text-transform: uppercase;
   font-weight: normal;
+  transition: animate(color);
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.75);
+  }
 }
 
 .btn-primary {
@@ -118,6 +123,11 @@ img {
 
 .container {
   @include layout;
+}
+
+/* Disables the -15px marigins */
+.row {
+  margin: 0;
 }
 
 /*============================================================================
@@ -341,7 +351,7 @@ img {
 /*============================================================================
   Contact Sections
 ==============================================================================*/
-.contact {
+.contact .container {
   background-size: cover;
   padding: 45px;
 
@@ -354,7 +364,11 @@ img {
   }
 
   .services & {
-    background-image: url(../img/about-contact-bg.jpg);  
+    background-image: url(../img/services-contact-bg.jpg);  
+  }
+
+  .villa & {
+    background-image: url(../img/villa-contact-bg.jpg);  
   }
 
   .form-container {
@@ -371,6 +385,10 @@ img {
       [type="submit"] {
         font-family: $museo;
         border-width: 0px;
+
+        &:hover {
+          background-color: $navy;
+        }
       }
     }
 
@@ -399,6 +417,7 @@ footer {
     li {
       display: inline-block;
       list-style-type: none;
+      transition: animate(opacity);
 
       &:hover {
         opacity: 0.5;
