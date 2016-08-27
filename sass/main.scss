@@ -35,12 +35,12 @@ body, html {
 }
 
 @mixin layout {
-  max-width: 1200px;
   margin: 0 auto;
   padding: 0;
+  width: 100%;
 
-  @media (min-width: 1200px) {
-    width: 1230px;
+  @media (min-width: 1024px) {
+    max-width: 1200px;
   }
 }
 
@@ -48,8 +48,16 @@ body, html {
   @return $divisor / 16 * 1rem;
 }
 
+@function col($width) {
+  @return $width / 12 * 100%;
+}
+
 body {
   font-family: $serif;
+
+  @media (max-width: 768px) {
+    padding-top: 100px;
+  }
 }
 
 p {
@@ -69,26 +77,32 @@ img {
 
 .form-control {
   font-family: $museo;
+  font-size: rem(18);
   background-color: $cota;
   color: #fff;
   padding: 5px;
   border-radius: 0px;
 }
 
+.btn {
+  line-height: 2rem;
+  font-family: $museo;
+  border-radius: 0px;
+  font-size: rem(18);
+}
+
 .btn-primary {
   background-color: $navy;
   color: #fff;
-  border-radius: 0px;
 }
 
-.container,
-.carousel {
+.container {
   @include layout;
 }
 
 .navbar {
   height: 100px;
-  max-width: 1230px;
+  padding: 0;
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.75);
   border-color: transparent;
@@ -97,12 +111,20 @@ img {
     max-width: 300px;
     height: auto;
     padding: 0;
-    margin: 15px;
+    padding: 15px 0 0 30px;
+
+    img {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      max-width: 260px;
+    }
   }
 
   .navbar-toggle {
     border-color: #888;
-    margin: 30px;
+    margin: 30px 30px 0 0;
   }
 
   #navbar {
@@ -110,15 +132,11 @@ img {
     text-transform: uppercase;
     margin: 18px 15px;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 768px) {
       background-color: #fff;
       width: 100%;
       margin: -2px 0;
       padding: 0;
-
-      .navbar-nav {
-        margin: 0;
-      }
 
       .container > .navbar-collapse {
         margin: 0;
@@ -126,6 +144,11 @@ img {
 
       li {
         border-bottom: solid 1px #666;
+
+        a:hover {
+          background-color: $navy;
+          color: #fff;
+        }
       }
     }
 
@@ -142,11 +165,15 @@ img {
 }
 
 .carousel {
+  @include layout;
   position: relative;
-  max-width: 1230px;
 
   img {
     width: 100%;
+  }
+
+  .carousel-control {
+    width: 5%;
   }
 
   .carousel-indicators {
@@ -168,7 +195,6 @@ img {
 
 .overview {
   .col-md-6 {
-    height: 300px;
     padding: 15px 45px;
 
     h2 {
@@ -201,8 +227,8 @@ img {
       color: $cota;
     }
 
-    @media (max-width: 768px) {
-      height: 370px;
+    @media (min-width: 768px) {
+      min-height: 300px;
     }
   }
 }
@@ -238,12 +264,21 @@ img {
   background-size: cover;
   padding: 45px;
 
-  .col-md-5 {
+  .form-container {
     background-color: #fff;
-    float: right;
+    padding: 15px;
 
     .btn-primary {
       width: 100%;
+    }
+
+    form {
+      margin: 15px;
+    }
+
+    @media (min-width: 1200px) {
+      float: right;
+      width: col(5);
     }
   }
 }
@@ -253,6 +288,7 @@ footer {
 
   small {
     text-transform: uppercase;
+    float: right;
   }
 
   ul {
