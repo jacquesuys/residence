@@ -49,6 +49,12 @@ $(document).ready(function(){
       isValid = false;
     }
 
+    var tel = $('[name="tel"]');
+    if ( !regex.isTel( tel.val() ) ) {
+      tel.parent().find('.error').text('Valid Telephone Number Please');
+      isValid = false;
+    }
+
     return isValid;
   }
 
