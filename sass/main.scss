@@ -64,6 +64,7 @@ body, html {
 
 body {
   font-family: $serif;
+  line-height: 1.25rem;
 
   @media (max-width: 768px) {
     padding-top: 100px;
@@ -92,6 +93,10 @@ img {
   color: #fff;
   padding: 5px;
   border-radius: 0px;
+}
+
+.error {
+  padding-top: 7px;
 }
 
 .btn {
@@ -140,6 +145,10 @@ img {
   background-color: rgba(255, 255, 255, 0.75);
   border-color: transparent;
 
+  .navbar-header {
+    min-height: 100px;
+  }
+
   .navbar-brand {
     max-width: 300px;
     height: auto;
@@ -164,6 +173,10 @@ img {
     font-family: $serif;
     text-transform: uppercase;
     margin: 18px 15px;
+
+    .navbar-nav {
+      margin: 0;
+    }
 
     @media (max-width: 768px) {
       background-color: #fff;
@@ -217,6 +230,7 @@ img {
     width: auto;
     right: 20px;
     left: auto;
+    margin: 0;
 
     li {
       display: block;
@@ -373,14 +387,13 @@ img {
 
   .form-container {
     background-color: #fff;
-    padding: 15px;
+    padding: 15px 30px;
 
     .btn-primary {
       width: 100%;
     }
 
     form {
-      margin: 15px;
 
       [type="submit"] {
         font-family: $museo;

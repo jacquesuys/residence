@@ -83,4 +83,28 @@ $(document).ready(function(){
       $(this).addClass('errors');
     }
   });
+
+  // make all the tiles uniform height
+  var tiles = function() {
+    $('.tiles').each(function(){
+      var arr = [];
+      var tile = $(this).find('.tile');
+
+      tile.each(function(){
+        arr.push($(this).innerHeight());
+      });
+
+      var height = arr.reduce(function(prev, next){
+        return prev > next ? prev : next;
+      });
+
+      tile.each(function() {
+        $(this).css('height', height + 'px');
+      });
+    });
+  }
+
+  tiles();
+
+  $(window).on('resize', tiles);
 });
