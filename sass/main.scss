@@ -75,6 +75,12 @@ p {
   font-family: $museo;
 }
 
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 img {
   max-width: 100%;
 }
@@ -133,6 +139,36 @@ img {
 /* Disables the -15px marigins */
 .row {
   margin: 0;
+}
+
+.hover-tile {
+  position: relative;
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $navy;
+    color: #fff;
+    opacity: 0;
+    transition: animate(opacity);
+    padding: 15px 30px;
+
+    h3 {
+      margin-bottom: 30px;
+    }
+
+    .read-more {
+      color: #fff;
+      text-transform: uppercase;
+    }
+  }
+
+  &.active .overlay {
+    opacity: 1;
+  }
 }
 
 /*============================================================================

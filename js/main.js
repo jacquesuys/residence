@@ -107,4 +107,14 @@ $(document).ready(function(){
   tiles();
 
   $(window).on('resize', tiles);
+
+  // Hover tiles for homepage
+  $('.hover-tile').on({
+    mouseenter: function() {
+      $(this).toggleClass('active');
+    },
+    mouseleave: function() {
+      $(this).toggleClass('active');
+    }
+  });
 });
